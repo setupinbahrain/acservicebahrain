@@ -23,7 +23,7 @@ export default function DiagnosticCalculator({ serviceName, cityName }: { servic
 
   const generateWhatsAppString = () => {
     const text = `URGENT: Requesting ${serviceName} in ${cityName}. Symptom: ${symptom}. Please run remote diagnostic calculation.`;
-    return `https://wa.me/97333522205?text=${encodeURIComponent(text)}`;
+    return `https://wa.link/acservicebahrain?text=${encodeURIComponent(text)}`;
   };
 
   return (

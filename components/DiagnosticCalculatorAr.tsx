@@ -23,7 +23,7 @@ export default function DiagnosticCalculatorAr({ serviceName, cityName }: { serv
 
   const generateWhatsAppString = () => {
     const text = `طلب عاجل: ${serviceName} في ${cityName}. العطل الفني: ${symptom}. يرجى إرسال التكلفة.`;
-    return `https://wa.me/97333522205?text=${encodeURIComponent(text)}`;
+    return `https://wa.link/acservicebahrain?text=${encodeURIComponent(text)}`;
   };
 
   return (

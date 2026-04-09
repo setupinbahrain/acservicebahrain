@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function FloatingWhatsApp() {
-  const whatsappUrl = "https://wa.me/97333522205?text=Hello,%20I%20urgently%20need%20expert%20HVAC%20or%20Appliance%20service%20in%20Bahrain.";
+  const whatsappUrl = "https://wa.link/acservicebahrain";
 
   return (
     <div className="fixed bottom-6 right-6 z-[999]">

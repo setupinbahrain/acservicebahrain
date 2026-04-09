@@ -158,7 +158,7 @@ export default function RootLayout({
               <h3 className="text-lg font-bold text-white mb-6">{isArabic ? 'ضماننا وضوابط التكلفة الشفافة' : 'Our Transparent Guarantee'}</h3>
               <p className="text-sm text-slate-400 leading-relaxed mb-6">{isArabic ? 'نحن لا نعتمد التخمين. جميع التكاليف تُعرض بشفافية تامة وتُبنى على معايير هندسية فيزيائية واضحة قبل البدء بأي عمل.' : 'We never proceed with arbitrary repairs. All costs are presented transparently based strictly on live engineering facts before the toolbelt opens.'}</p>
               <a 
-                href="https://wa.me/97333522205" 
+                href="https://wa.link/acservicebahrain" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className={`bg-primary/10 text-primary px-6 py-3 rounded-xl font-bold hover:bg-primary hover:text-white transition-colors border border-primary flex items-center justify-center gap-2 w-full ${isArabic ? 'flex-row-reverse' : ''}`}

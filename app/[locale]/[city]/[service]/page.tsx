@@ -14,6 +14,9 @@ import FadeIn from '../../../../components/FadeIn';
 import { getCDNImage } from '../../../../utils/imageMatrix';
 import { arabicCities, arabicServices, translationMatrix } from '../../../../data/dictionary';
 
+import { Metadata } from 'next';
+import { constructMetadata } from '../../../../utils/seoMatrix';
+
 export async function generateStaticParams() {
   const paths: { city: string; service: string }[] = [];
   cities.forEach((city) => {
@@ -37,16 +40,20 @@ export function generateMetadata({ params }: { params: { locale: string, city: s
   const serviceName = isArabic ? (arabicServices[params.service] || slugService) : slugService;
 
   if (isArabic) {
-    return {
+    return constructMetadata({
       title: `دعم ${serviceName} في ${cityName} | مهندسون معتمدون بحرينياً`,
       description: `خدمات صيانة ${serviceName} عاجلة في ${cityName}. نحن نستخدم منظومة تشخيص ميكانيكية متقدمة لتسعير وفحص كافة أعطال المكيفات والأجهزة باحترافية عالية.`,
-    };
+      urlPath: `/ar/${params.city}/${params.service}`,
+      locale: 'ar'
+    });
   }
 
-  return {
+  return constructMetadata({
     title: `Expert ${serviceName} in ${cityName}, Bahrain | AC Service Bahrain`,
     description: `Highly responsive ${serviceName.toLowerCase()} in ${cityName}. We utilize advanced diagnostic matrices to quote exact AC, HVAC, and Appliance repair logic accurately.`,
-  };
+    urlPath: `/en/${params.city}/${params.service}`,
+    locale: 'en'
+  });
 }
 
 export default function DeepPolymorphicPage({ params }: { params: { locale: 'en'|'ar', city: string, service: string } }) {

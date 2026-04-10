@@ -8,6 +8,7 @@ import ProceduralFAQAr from '../../../../components/ProceduralFAQAr';
 import { getCDNImage } from '../../../../utils/imageMatrix';
 import { arabicCities, arabicServices } from '../../../../data/dictionary';
 import { Metadata } from 'next';
+import { constructMetadata } from '../../../../utils/seoMatrix';
 
 export async function generateStaticParams() {
   return cities.map((city) => ({
@@ -17,20 +18,25 @@ export async function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { locale: 'en'|'ar', city: string } }): Metadata {
   const isArabic = params.locale === 'ar';
+  const slugCity = params.city.toLowerCase().replace(/ /g, '-');
   const cityNameEnglish = params.city.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   const cityName = isArabic ? (arabicCities[cityNameEnglish] || cityNameEnglish) : cityNameEnglish;
 
   if (isArabic) {
-    return {
+    return constructMetadata({
       title: `خبراء التكييف المركزي وصيانة الأعطال في ${cityName}، البحرين`,
       description: `خدمات تكييف وتأسيس مجاري الهواء (الدكت) من النخبة في ${cityName}. تشخيص فني سريع وشفاف لحالتك الميكانيكية المخصصة. احجز موعدك فوراً عبر الواتساب.`,
-    };
+      urlPath: `/ar/areas/${slugCity}`,
+      locale: 'ar'
+    });
   }
 
-  return {
+  return constructMetadata({
     title: `Expert HVAC & Central AC Repair in ${cityName}, Bahrain`,
     description: `Leading MEP, Central AC, & Ducting services in ${cityName}. Fast, honest assessments via WhatsApp case-by-case routing. Optimize your cooling today!`,
-  };
+    urlPath: `/en/areas/${slugCity}`,
+    locale: 'en'
+  });
 }
 
 export default function CityPage({ params }: { params: { locale: 'en'|'ar', city: string } }) {

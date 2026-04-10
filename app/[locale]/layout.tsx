@@ -5,19 +5,24 @@ import { services } from '../../data/services';
 import FloatingWhatsApp from '../../components/FloatingWhatsApp';
 import { translationMatrix } from '../../data/dictionary';
 import Header from '../../components/Header';
+import { constructMetadata } from '../../utils/seoMatrix';
 
 export async function generateMetadata({ params }: { params: { locale: 'en' | 'ar' } }): Promise<Metadata> {
   const isArabic = params.locale === 'ar';
   if (isArabic) {
-    return {
+    return constructMetadata({
       title: 'صيانة مكيفات البحرين | خبراء التكييف المركزي والدكت',
       description: 'أفضل خدمات صيانة التكييف المعتمدة في البحرين. فحص احترافي، تصليح مكيفات مركزية، وتصنيع دكت متكامل. اتصل بنا للحصول على فحص ميكانيكي دقيق.',
-    };
+      urlPath: '/ar',
+      locale: 'ar'
+    });
   }
-  return {
+  return constructMetadata({
     title: 'AC Service Bahrain | World-Class HVAC, AC & Ducting Specialists',
     description: 'Premium HVAC, AC repair, ducting, and commercial maintenance services across Bahrain. World-class diagnostics exactly when you need them.',
-  };
+    urlPath: '/en',
+    locale: 'en'
+  });
 }
 
 export default function RootLayout({

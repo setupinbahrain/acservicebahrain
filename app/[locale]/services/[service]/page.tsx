@@ -8,6 +8,7 @@ import ProceduralFAQAr from '../../../../components/ProceduralFAQAr';
 import { getCDNImage } from '../../../../utils/imageMatrix';
 import { arabicCities, arabicServices } from '../../../../data/dictionary';
 import { Metadata } from 'next';
+import { constructMetadata } from '../../../../utils/seoMatrix';
 
 export async function generateStaticParams() {
   return services.map((service) => ({
@@ -18,20 +19,25 @@ export async function generateStaticParams() {
 export function generateMetadata({ params }: { params: { locale: 'en'|'ar', service: string } }): Metadata {
   const isArabic = params.locale === 'ar';
   const serviceData = services.find(s => s.slug === params.service);
-  const nameEnglish = serviceData ? serviceData.name : params.service;
+  const nameEnglish = serviceData ? serviceData.name : params.service.replace('-', ' ');
   const serviceName = isArabic ? (arabicServices[params.service] || nameEnglish) : nameEnglish;
+  const slugService = params.service;
   
   if (isArabic) {
-    return {
+    return constructMetadata({
       title: `خبراء ${serviceName} في البحرين | استشارة مباشرة عن طريق الواتساب`,
       description: `صيانة متخصصة ودقيقة لـ ${serviceName} في البحرين. نقدم فحصا ميكانيكياً احترافياً لمعرفة التكاليف الحقيقية في سرية ووضوح فوراً عبر الواتساب.`,
-    };
+      urlPath: `/ar/services/${slugService}`,
+      locale: 'ar'
+    });
   }
 
-  return {
+  return constructMetadata({
     title: `Professional ${nameEnglish} in Bahrain | Direct WhatsApp Quotes`,
     description: `Expert ${nameEnglish} and related ${serviceData?.category || 'HVAC'} maintenance in Bahrain. Highly localized, precision diagnostics. Find out your true cost instantly on WhatsApp.`,
-  };
+    urlPath: `/en/services/${slugService}`,
+    locale: 'en'
+  });
 }
 
 export default function ServicePage({ params }: { params: { locale: 'en'|'ar', service: string } }) {

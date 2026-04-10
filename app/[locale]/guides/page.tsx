@@ -3,21 +3,26 @@ import WhatsAppButton from '../../../components/WhatsAppButton';
 import { services } from '../../../data/services';
 import { arabicServices } from '../../../data/dictionary';
 import { Metadata } from 'next';
+import { constructMetadata } from '../../../utils/seoMatrix';
 
 export function generateMetadata({ params }: { params: { locale: 'en'|'ar' } }): Metadata {
   const isArabic = params.locale === 'ar';
   
   if (isArabic) {
-     return {
+     return constructMetadata({
        title: 'أدلة الفحص الهندسي: صيانة التكييف المركزي والدكت',
        description: 'مصادر هندسية وتقارير فحص للتعامل مع أعطال الكمبريسر، وحدات التكييف المائي، والمكيفات المركزية في البحرين.',
-     };
+       urlPath: '/ar/guides',
+       locale: 'ar'
+     });
   }
 
-  return {
+  return constructMetadata({
     title: 'Diagnostic Guides: HVAC, Central AC & Ducting Troubleshooting',
     description: 'Self-help technical resources and diagnostic configurations for major VRF, Compressor, and MEP Central Cooling failures in Bahrain.',
-  };
+    urlPath: '/en/guides',
+    locale: 'en'
+  });
 }
 
 export default function GuidesPage({ params }: { params: { locale: 'en'|'ar' } }) {

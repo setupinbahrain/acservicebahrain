@@ -1,21 +1,26 @@
 import React from 'react';
 import WhatsAppButton from '../../../components/WhatsAppButton';
 import { Metadata } from 'next';
+import { constructMetadata } from '../../../utils/seoMatrix';
 
 export function generateMetadata({ params }: { params: { locale: 'en'|'ar' } }): Metadata {
   const isArabic = params.locale === 'ar';
   
   if (isArabic) {
-     return {
+     return constructMetadata({
        title: 'دليل أسعار صيانة وتشخيص التكييف في البحرين | تسعير شفاف',
        description: 'اكتشف كيف نقوم بتسعير تقارير فحص التكييف الميكانيكي، تصنيع الدكت المركزي، وقطع التكييف بأسلوب فردي شفاف عبر الواتساب.',
-     };
+       urlPath: '/ar/cost',
+       locale: 'ar'
+     });
   }
 
-  return {
+  return constructMetadata({
     title: 'HVAC & AC Repair Costs in Bahrain | Transparent Pricing',
     description: 'Understand exactly how we quote HVAC repairs, MEP ducting work, and commercial Central AC components case-by-case over WhatsApp.',
-  };
+    urlPath: '/en/cost',
+    locale: 'en'
+  });
 }
 
 export default function CostPage({ params }: { params: { locale: 'en'|'ar' } }) {

@@ -8,19 +8,24 @@ import ProceduralFAQAr from '../../components/ProceduralFAQAr';
 import { getCDNImage } from '../../utils/imageMatrix';
 import { arabicCities, arabicServices } from '../../data/dictionary';
 import { Metadata } from 'next';
+import { constructMetadata } from '../../utils/seoMatrix';
 
 export async function generateMetadata({ params }: { params: { locale: 'en' | 'ar' } }): Promise<Metadata> {
   const isArabic = params.locale === 'ar';
   if (isArabic) {
-    return {
+    return constructMetadata({
       title: 'أفضل شركة صيانة مكيفات في البحرين | تصليح التكييف المركزي والأجهزة',
       description: 'نظام متكامل لخدمات صيانة المكيفات المركزية والأجهزة المنزلية في البحرين. دقة هندسية عالية وتغطية شاملة للمقاطعات السكنية والتجارية.',
-    };
+      urlPath: '/ar',
+      locale: 'ar'
+    });
   }
-  return {
+  return constructMetadata({
     title: 'Top Rated AC Repair & HVAC Maintenance in Bahrain',
     description: 'Bahrain’s elite HVAC, AC & Appliance network. Engineered precision, advanced remote diagnostics, and complete GCC commercial coverage.',
-  };
+    urlPath: '/en',
+    locale: 'en'
+  });
 }
 
 export default function Home({ params }: { params: { locale: 'en' | 'ar' } }) {

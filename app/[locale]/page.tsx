@@ -34,7 +34,7 @@ export default function Home({ params }: { params: { locale: 'en' | 'ar' } }) {
           <Image src={getCDNImage('bahrain-home-hero')} alt="HVAC Repair Network Bahrain" fill style={{ objectFit: "cover" }} />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
             {isArabic ? (
               <>شبكة <span className="text-primary">التكييف المركزي والأجهزة المنزلية</span> الأفضل في البحرين</>
             ) : (

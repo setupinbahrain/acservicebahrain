@@ -72,11 +72,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const citySlug = slugify(city);
       
       urls.push({
-        url: `${baseUrl}${localePath}/${citySlug}`,
+        url: `${baseUrl}${localePath}/areas/${citySlug}`,
         lastModified: new Date(),
         changeFrequency: "weekly",
         priority: 0.8,
-        alternates: getAlternates(`/${citySlug}`),
+        alternates: getAlternates(`/areas/${citySlug}`),
       });
 
       services.forEach((service) => {

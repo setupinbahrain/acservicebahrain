@@ -36,24 +36,48 @@ export default function Home({ params }: { params: { locale: 'en' | 'ar' } }) {
       {/* Hero Section */}
       <section className="relative bg-secondary text-white py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <Image src={getCDNImage('bahrain-home-hero')} alt="HVAC Repair Network Bahrain" fill style={{ objectFit: "cover" }} />
+          <Image src={getCDNImage('bahrain-home-hero')} alt="AC Service Bahrain Network" fill style={{ objectFit: "cover" }} />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
             {isArabic ? (
-              <>شبكة <span className="text-primary">التكييف المركزي والأجهزة المنزلية</span> الأفضل في البحرين</>
+              <>الشبكة الأكثر تقدماً تقنياً لصيانة وتصليح <span className="text-primary">مكيفات البحرين</span></>
             ) : (
-              <>Bahrain’s Elite <span className="text-primary">HVAC, AC & Appliance</span> Network</>
+              <>Bahrain's Most Technically Advanced <span className="text-primary">AC & HVAC</span> Repair Network</>
             )}
           </h1>
           <p className="text-xl max-w-3xl mx-auto text-slate-300 mb-10 leading-relaxed font-light">
             {isArabic ? 
-              'دقة هندسية، فحص عن بعد متقدم، وتغطية تجارية شاملة. من أنظمة التبريد المركزية VRF إلى فحص وتصنيع الدكتات، مهندسونا مستعدون دائماً للتدخل السريع.' : 
-              'Engineered precision, advanced remote diagnostics, and complete GCC commercial coverage. From VRF Central Cooling to localized duct inspections, our verified technicians are on standby.'
+              'عندما يتعطل مكيفك في حرارة الصيف التي تصل إلى 45 درجة مئوية، كل ساعة تهم. ننشر مهندسي التكييف المعتمدين في جميع مقاطعات البحرين الـ 64 مع تقييم وتسعير شفاف عبر الواتساب.' : 
+              'When your AC fails in Bahrain\'s 45°C summer heat, every hour matters. We deploy certified HVAC engineers across all 64 districts — with WhatsApp-first diagnostics and transparent pricing. No guesswork. Just honest repair.'
             }
           </p>
           <div className="flex justify-center gap-4">
-             <WhatsAppButton text={isArabic ? "احصل على دعم هندسي وفني فوري" : "Get Immediate Technical Support"} />
+             <WhatsAppButton text={isArabic ? "📱 احصل على فحص مجاني عبر الواتساب" : "📱 Get WhatsApp Diagnosis — Free"} />
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Bar (Under Hero) */}
+      <section className="bg-slate-900 border-b-4 border-primary">
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <div className="flex flex-wrap justify-between items-center gap-8 text-center sm:text-left">
+            <div className="flex-1 min-w-[200px]">
+              <div className="font-sans text-2xl font-bold text-amber-500">CR 136016-1</div>
+              <div className="text-xs text-slate-300 mt-1 uppercase tracking-wider">{isArabic ? 'ورشة مسجلة' : 'Registered Workshop'}</div>
+            </div>
+            <div className="flex-1 min-w-[200px]">
+              <div className="font-sans text-2xl font-bold text-amber-500">30-Day</div>
+              <div className="text-xs text-slate-300 mt-1 uppercase tracking-wider">{isArabic ? 'ضمان جودة العمل' : 'Workmanship Guarantee'}</div>
+            </div>
+            <div className="flex-1 min-w-[200px]">
+              <div className="font-sans text-2xl font-bold text-amber-500">64</div>
+              <div className="text-xs text-slate-300 mt-1 uppercase tracking-wider">{isArabic ? 'مقاطعة مغطاة' : 'Districts Covered'}</div>
+            </div>
+            <div className="flex-1 min-w-[200px]">
+              <div className="font-sans text-2xl font-bold text-amber-500">OEM Only</div>
+              <div className="text-xs text-slate-300 mt-1 uppercase tracking-wider">{isArabic ? 'قطع غيار أصلية' : 'Genuine Parts Used'}</div>
+            </div>
           </div>
         </div>
       </section>
@@ -107,16 +131,55 @@ export default function Home({ params }: { params: { locale: 'en' | 'ar' } }) {
         </div>
       </section>
       
+      {/* New Context Sections (Playbook) */}
+      <section className="bg-white py-20 border-b border-slate-200">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-16">
+            <div>
+              <h3 className="text-3xl font-extrabold text-slate-900 mb-6">
+                {isArabic ? 'لماذا تتلف أنظمة التكييف في البحرين بشكل أسرع' : 'Why Bahrain\'s Climate Destroys AC Systems Faster'}
+              </h3>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                {isArabic ? 
+                  'تتجاوز درجة الحرارة في البحرين بانتظام 45 درجة مئوية خلال الصيف، مع رطوبة عالية وأملاح جوية تؤدي لتآكل مبدلات الحرارة. لذلك، نحن نقوم بتشخيص أعمق من مجرد تعبئة غاز.' :
+                  'Bahrain\'s ambient temperature regularly exceeds 45°C between May and September. Combined with coastal humidity of 70–90% and airborne salt particles from the Arabian Gulf, HVAC systems operate under extreme mechanical stress. This is why we see compressor burnout in units that are only 2–3 years old.'
+                }
+              </p>
+              <WhatsAppButton text={isArabic ? "📋 أرسل كود العطل عبر الواتساب" : "📋 Send Us Your Error Code on WhatsApp"} fullWidth />
+            </div>
+            <div>
+              <h3 className="text-3xl font-extrabold text-slate-900 mb-6">
+                {isArabic ? 'كيف نعمل — 3 خطوات لنظام سليم' : 'How It Works — 3 Steps to a Fixed System'}
+              </h3>
+              <div className="space-y-4">
+                <div className="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                  <strong className="text-primary block mb-1">Step 1: WhatsApp Your Fault</strong>
+                  <p className="text-sm text-slate-600">Send us a photo of your unit and a short video of the symptom. Senior engineer responds within 30 mins.</p>
+                </div>
+                <div className="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                  <strong className="text-primary block mb-1">Step 2: Receive a Transparent Quote</strong>
+                  <p className="text-sm text-slate-600">Before any technician leaves, you receive a case-specific cost range. No surprises.</p>
+                </div>
+                <div className="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                  <strong className="text-primary block mb-1">Step 3: Precision Repair</strong>
+                  <p className="text-sm text-slate-600">Our technician executes the repair and runs a full air balance test before marking the job complete.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Central WhatsApp Logic */}
-       <section className="bg-white py-20 border-b border-secondary/10">
+       <section className="bg-slate-800 text-white py-20 border-b-8 border-primary">
           <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-4xl font-extrabold text-slate-900 mb-6">
-              {isArabic ? 'لا للوسطاء. تحدث مباشرة مع المهندسين' : 'Cut The Middleman. Speak to Technicians.'}
+            <h2 className="text-4xl font-extrabold mb-6">
+              {isArabic ? 'لا للوسطاء. تحدث مباشرة مع المهندسين' : 'Cut The Middleman. Speak to Technicians directly.'}
             </h2>
-            <p className="text-lg text-slate-600 mb-10 leading-relaxed font-light">
-               {isArabic ? 'توقف عن إضاعة الوقت مع موظفي استقبال غير مختصين لا يدركون الفارق بين أعطال أنظمة الـ FCU وضعف كفاءة تبريد التكييف. احصل على استشارة تشخيصية ميكانيكية عالية الدقة ومباشرة عبر الواتساب.' : 'Stop talking to receptionists who don\'t understand the difference between an FCU issue and a Chilled Water AC leak. Secure a highly-technical diagnostic consultation instantly.'}
+            <p className="text-lg text-slate-300 mb-10 leading-relaxed font-light">
+               {isArabic ? 'توقف عن إضاعة الوقت. احصل على استشارة تشخيصية ميكانيكية عالية الدقة ومباشرة عبر الواتساب.' : 'Stop talking to receptionists. Secure a highly-technical diagnostic consultation instantly over WhatsApp.'}
             </p>
-            <WhatsAppButton text={isArabic ? 'إبدأ التقييم الهندسي عبر الواتساب' : 'Initiate WhatsApp Secure Chat'} fullWidth />
+            <WhatsAppButton text={isArabic ? 'إبدأ التقييم الهندسي عبر الواتساب' : 'Initiate WhatsApp Secure Chat'} fullWidth={false} />
           </div>
        </section>
 

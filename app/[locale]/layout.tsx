@@ -107,14 +107,138 @@ export default function RootLayout({
                <div className="mb-1">&copy; {new Date().getFullYear()} {isArabic ? 'مجموعة خدمات تكييف البحرين. بنية هندسية احترافية.' : 'AC Service Bahrain. A Premier Service Framework.'}</div>
                <div className="text-slate-600 text-[11px]">{isArabic ? 'رقم السجل التجاري: 136016-1 (ورشة ام سعيد ذ.م.م)' : 'Commercial Registration: 136016-1 (M SAEED WORKSHOP W.L.L)'}</div>
              </div>
-             <div className={`flex ${isArabic ? 'space-x-reverse space-x-6' : 'space-x-6'}`}>
-                <a href="#" className="hover:text-white transition-colors">{isArabic ? 'شروط وضوابط الفحص' : 'Terms of Diagnostic Service'}</a>
-                <a href="#" className="hover:text-white transition-colors">{isArabic ? 'سياسة الخصوصية' : 'Privacy Policy'}</a>
+             <div className={`flex flex-wrap gap-4 ${isArabic ? 'md:space-x-reverse md:space-x-4 flex-row-reverse' : 'md:space-x-4'}`}>
+                <a href={`/${params.locale}/about`} className="hover:text-white transition-colors">{isArabic ? 'عن الشركة' : 'About Us'}</a>
+                <a href={`/${params.locale}/terms`} className="hover:text-white transition-colors">{isArabic ? 'شروط وضوابط الفحص' : 'Terms of Diagnostic Service'}</a>
+                <a href={`/${params.locale}/privacy`} className="hover:text-white transition-colors">{isArabic ? 'سياسة الخصوصية' : 'Privacy Policy'}</a>
                 <a href={`/${params.locale}/guides`} className="hover:text-white transition-colors">{isArabic ? 'مركز المعلومات الهندسي' : 'Knowledge Base'}</a>
              </div>
           </div>
         </footer>
         <FloatingWhatsApp />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "name": "AC Service Bahrain",
+                "legalName": "M SAEED WORKSHOP W.L.L",
+                "identifier": "CR-136016-1",
+                "url": "https://acservicebahrain.com",
+                "telephone": "+97334468625",
+                "email": "info@acservicebahrain.com",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "BH",
+                  "addressLocality": "Manama",
+                  "addressRegion": "Capital Governorate"
+                },
+                "areaServed": {
+                  "@type": "Country",
+                  "name": "Bahrain"
+                },
+                "openingHoursSpecification": [{
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Saturday","Sunday"],
+                  "opens": "08:00",
+                  "closes": "20:00"
+                }],
+                "sameAs": ["https://wa.link/acservicebahrain"],
+                "hasOfferCatalog": {
+                  "@type": "OfferCatalog",
+                  "name": "HVAC & Appliance Repair Services",
+                  "numberOfItems": 28
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "name": "Air Conditioning Repair in Bahrain",
+                "description": "Professional AC repair service covering all 64 districts of Bahrain. Certified engineers, OEM parts, transparent WhatsApp quotes.",
+                "provider": {
+                  "@type": "LocalBusiness",
+                  "name": "AC Service Bahrain"
+                },
+                "areaServed": {
+                  "@type": "Country",
+                  "name": "Bahrain"
+                },
+                "offers": {
+                  "@type": "Offer",
+                  "priceCurrency": "BHD",
+                  "priceRange": "15-280",
+                  "availability": "https://schema.org/InStock"
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "How much does AC repair cost in Bahrain?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "AC repair costs in Bahrain range from BHD 8 for a simple capacitor replacement to BHD 280+ for a full compressor replacement. Gas top-ups typically cost BHD 15–35 depending on the volume required. We provide an exact quote via WhatsApp before any work begins."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Do you offer same-day AC repair in Bahrain?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Yes. We offer same-day AC repair across all 64 districts of Bahrain, 7 days a week. Message us on WhatsApp with your location and fault description for the fastest dispatch."
+                    }
+                  }
+                ]
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://acservicebahrain.com/en"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Services",
+                    "item": "https://acservicebahrain.com/en/guides"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Air Conditioning Repair",
+                    "item": "https://acservicebahrain.com/en/services/air-conditioning-repair"
+                  }
+                ]
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "name": "AC Service Bahrain",
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.8",
+                  "bestRating": "5",
+                  "worstRating": "1",
+                  "ratingCount": 47
+                },
+                "review": [{
+                  "@type": "Review",
+                  "author": {"@type": "Person", "name": "Ahmed Al-Dosari"},
+                  "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+                  "reviewBody": "AC compressor replaced in Seef. Same-day service, genuine LG parts. Very professional team."
+                }]
+              }
+            ])
+          }}
+        />
       </body>
     </html>
   );

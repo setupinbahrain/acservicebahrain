@@ -51,37 +51,45 @@ export default function CostPage({ params }: { params: { locale: 'en'|'ar' } }) 
         </p>
 
         <h3 className="text-2xl font-bold text-slate-800 mb-4 mt-8">
-          {isArabic ? 'ما هي العوامل الهندسية التي تحدد التكلفة النهائية؟' : 'What Influences the Final Repair Bill?'}
+          {isArabic ? 'تكاليف إصلاح التكييف في البحرين — أسعار واقعية بالدينار البحريني' : 'AC & HVAC Repair Costs in Bahrain — Honest BHD Price Ranges'}
         </h3>
-        <ul className={`space-y-3 mb-8 text-slate-700 list-none ${isArabic ? 'pr-0' : ''}`}>
-          <li className="flex items-start gap-2">
-            <span className="text-primary font-bold">{isArabic ? '•' : '•'}</span>
-            <span>
-              <strong>{isArabic ? 'نوع القطع وأصالتها (التجاري مقارنةً بالوكيل):' : 'Component Economics (OEM vs Aftermarket):'}</strong> {isArabic ? 'يختلف تركيب كمبريسر تكييف أصلي بضمان الشركة المصنعة عن استخدام قطع تجارية رخيصة لخفض التكلفة ظاهرياً.' : 'Installing a genuine LG compressor matrix costs differently than utilizing generic high-efficiency run capacitors.'}
-            </span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary font-bold">{isArabic ? '•' : '•'}</span>
-            <span>
-               <strong>{isArabic ? 'فيزياء التبريد ونوع الفريون:' : 'Refrigerant Thermodynamics:'}</strong> {isArabic ? 'غاز الفريون عالي الجودة المخصص لبعض مكيفات الانفرتر حساس في سعره. نحن نقوم بتعبئته بدقة وحسابه بالجرام لضمان الوصول لمرحلة التبريد المطلوبة دون زيادة أو نقصان.' : 'High-grade R-410A gas required for split AC units fluctuates in market price. We charge exactly by the volumetric pound required to achieve perfect sub-cooling balancing.'}
-            </span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-primary font-bold">{isArabic ? '•' : '•'}</span>
-            <span>
-               <strong>{isArabic ? 'هندسة مسارات التهوية (الدكت):' : 'Ducting and Fabrication Overhead:'}</strong> {isArabic ? 'أي تعديل في مجاري الدكت المركزي يتطلب استخدام حديد مجلفن وعوازل كثيفة تتغير أسعارها بناءً على المورد المحلي المعتمد وتكلفة المواد الهيكلية.' : 'Modifications requiring custom sheet metal duct fabrication (MEP scope) carry strict structural material costs.'}
-            </span>
-          </li>
-        </ul>
+        <p className="leading-relaxed mb-6">
+          {isArabic ? 
+            'الأسعار أدناه هي تقديرات مبدئية للإصلاحات الأكثر شيوعاً التي نقوم بها. التكلفة الدقيقة الخاصة بك تأكد دائماً عبر الواتساب قبل بدء العمل.' : 
+            'Below are realistic price ranges for the most common repairs we perform across Bahrain. These are starting-point estimates — the exact cost for your specific unit is always confirmed via WhatsApp before any work begins.'
+          }
+        </p>
+
+        <div className="overflow-x-auto mb-8">
+          <table className="min-w-full bg-white border border-slate-200">
+            <thead className="bg-slate-50 text-slate-700">
+              <tr>
+                <th className="py-3 px-4 text-left font-bold">{isArabic ? 'نوع الخدمة' : 'Service Type'}</th>
+                <th className="py-3 px-4 text-left font-bold">{isArabic ? 'متوسط السعر (BHD)' : 'Typical Range (BHD)'}</th>
+                <th className="py-3 px-4 text-left font-bold">{isArabic ? 'عوامل التكلفة' : 'Key Variables'}</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100 text-slate-600 border-b border-slate-200">
+              <tr><td className="py-2 px-4 font-bold text-slate-800">AC Gas Top-Up (R-410A)</td><td className="py-2 px-4 font-bold text-primary">15 – 35</td><td className="py-2 px-4 text-sm">Volume of gas required</td></tr>
+              <tr><td className="py-2 px-4 font-bold text-slate-800">Run Capacitor Replacement</td><td className="py-2 px-4 font-bold text-primary">8 – 22</td><td className="py-2 px-4 text-sm">Brand and capacitor spec</td></tr>
+              <tr><td className="py-2 px-4 font-bold text-slate-800">PCB / Control Board</td><td className="py-2 px-4 font-bold text-primary">35 – 95</td><td className="py-2 px-4 text-sm">Brand, OEM vs aftermarket</td></tr>
+              <tr><td className="py-2 px-4 font-bold text-slate-800">Compressor Replacement</td><td className="py-2 px-4 font-bold text-primary">90 – 280</td><td className="py-2 px-4 text-sm">Tonnage, brand, part availability</td></tr>
+              <tr><td className="py-2 px-4 font-bold text-slate-800">Annual AC Service (per unit)</td><td className="py-2 px-4 font-bold text-primary">20 – 45</td><td className="py-2 px-4 text-sm">Unit size and condition</td></tr>
+              <tr><td className="py-2 px-4 font-bold text-slate-800">Fridge Sealed System Repair</td><td className="py-2 px-4 font-bold text-primary">25 – 80</td><td className="py-2 px-4 text-sm">Fault type, brand</td></tr>
+              <tr><td className="py-2 px-4 font-bold text-slate-800">Washing Machine Drum Bearing</td><td className="py-2 px-4 font-bold text-primary">30 – 65</td><td className="py-2 px-4 text-sm">Access complexity, brand</td></tr>
+              <tr><td className="py-2 px-4 font-bold text-slate-800">VRF System Diagnostic</td><td className="py-2 px-4 font-bold text-primary">45 – 120</td><td className="py-2 px-4 text-sm">System tonnage, fault complexity</td></tr>
+            </tbody>
+          </table>
+        </div>
 
          <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 mt-10">
             <h4 className="font-bold text-lg mb-2 text-slate-900">
-               {isArabic ? 'احصل على العرض الشامل الخاص بأسعار الصيانة' : 'Get Your Exact Assessment Instantly'}
+               {isArabic ? 'احصل على العطاء الشامل الخاص بأسعار الصيانة' : 'Get Your Exact Assessment Instantly'}
             </h4>
             <p className="mb-4 text-sm text-slate-600 leading-relaxed">
-               {isArabic ? 'التقط صورة لملصق البيانات الخاص بوحدتك التالفة، قم بتسجيل فيديو قصير يوضح المشكلة (مثل تسريب مياه أو ضوضاء مزعجة)، وشاركنا إياها مع موقعك للحصول على عرض مباشر.' : 'Snap a photo of the unit\'s brand tag, take a short video of the symptom (e.g. leaking water, strange noise), and drop us a pin of your location.'}
+               {isArabic ? 'التقط صورة لملصق البيانات الخاص بوحدتك التالفة، قم بتسجيل فيديو قصير يوضح المشكلة (مثل تسريب مياه أو ضوضاء مزعجة)، وشاركنا إياها عبر الواتساب للحصول على تفصيل دقيق للتكلفة.' : 'Snap a photo of the unit\'s brand tag, take a short video of the symptom (e.g. leaking water, strange noise), and drop us a WhatsApp for an exact quote.'}
             </p>
-            <WhatsAppButton text={isArabic ? 'اطلب معاينة وتقرير فحص هندسي' : 'Request Transparent Quotation'} />
+            <WhatsAppButton text={isArabic ? 'اطلب تسعيرة شفافة لا تلزمك بشيء' : 'Request Transparent Quotation'} />
          </div>
       </div>
     </div>

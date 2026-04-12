@@ -8,11 +8,6 @@ import { arabicCities, arabicServices } from '../../../../data/dictionary';
 import { Metadata } from 'next';
 import { constructMetadata } from '../../../../utils/seoMatrix';
 
-export async function generateStaticParams() {
-  return cities.map((city) => ({
-    city: city.toLowerCase().replace(/ /g, '-'),
-  }));
-}
 
 export function generateMetadata({ params }: { params: { locale: 'en'|'ar', city: string } }): Metadata {
   const isArabic = params.locale === 'ar';

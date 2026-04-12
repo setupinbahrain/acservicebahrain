@@ -8,12 +8,6 @@ import { arabicCities, arabicServices } from '../../../../data/dictionary';
 import { Metadata } from 'next';
 import { constructMetadata } from '../../../../utils/seoMatrix';
 
-export async function generateStaticParams() {
-  return services.map((service) => ({
-    service: service.slug,
-  }));
-}
-
 export function generateMetadata({ params }: { params: { locale: 'en'|'ar', service: string } }): Metadata {
   const isArabic = params.locale === 'ar';
   const serviceData = services.find(s => s.slug === params.service);

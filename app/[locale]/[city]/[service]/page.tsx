@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import { Metadata } from 'next';
 import { cities } from '../../../../data/cities';
 import { services } from '../../../../data/services';
 import DiagnosticCalculator from '../../../../components/DiagnosticCalculator';
@@ -11,22 +10,8 @@ import SemanticEngineAr from '../../../../components/SemanticEngineAr';
 import FadeIn from '../../../../components/FadeIn';
 import { getCDNImage } from '../../../../utils/imageMatrix';
 import { arabicCities, arabicServices, translationMatrix } from '../../../../data/dictionary';
-
 import { Metadata } from 'next';
 import { constructMetadata } from '../../../../utils/seoMatrix';
-
-export async function generateStaticParams() {
-  const paths: { city: string; service: string }[] = [];
-  cities.forEach((city) => {
-    services.forEach((service) => {
-      paths.push({
-        city: city.toLowerCase().replace(/ /g, '-'),
-        service: service.slug,
-      });
-    });
-  });
-  return paths;
-}
 
 export function generateMetadata({ params }: { params: { locale: string, city: string, service: string } }): Metadata {
   const slugCity = params.city.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');

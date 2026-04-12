@@ -1,10 +1,10 @@
 import React from 'react';
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 import Image from 'next/image';
 import { cities } from '../../../../data/cities';
 import { services } from '../../../../data/services';
 import WhatsAppButton from '../../../../components/WhatsAppButton';
-import ProceduralFAQ from '../../../../components/ProceduralFAQ';
-import ProceduralFAQAr from '../../../../components/ProceduralFAQAr';
 import { getCDNImage } from '../../../../utils/imageMatrix';
 import { arabicCities, arabicServices } from '../../../../data/dictionary';
 import { Metadata } from 'next';
@@ -142,17 +142,7 @@ export default function CityPage({ params }: { params: { locale: 'en'|'ar', city
         </div>
       </section>
 
-      {/* --- ALL-PAGES REQUIREMENT: THE 20-FAQ Procedural Generator --- */}
-      <section className="bg-slate-50 border-t border-slate-200 py-16">
-         <div className="max-w-6xl mx-auto px-4 relative z-10">
-            {isArabic ? (
-               <ProceduralFAQAr serviceName="إدارة كفاءة الأجهزة وتكييف الهواء" cityName={cityName} />
-            ) : (
-               <ProceduralFAQ serviceName="HVAC Diagnostic Infrastructure" cityName={cityName} />
-            )}
-         </div>
-      </section>
-
+      {/* FAQs Removed to clear thin duplicate content penalty */}
     </div>
   );
 }

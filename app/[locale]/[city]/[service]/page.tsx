@@ -1,4 +1,6 @@
 import React from 'react';
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 import Image from 'next/image';
 import { Metadata } from 'next';
 import { cities } from '../../../../data/cities';
@@ -8,8 +10,6 @@ import DiagnosticCalculatorAr from '../../../../components/DiagnosticCalculatorA
 import SEOAccordion from '../../../../components/SEOAccordion';
 import SemanticEngine from '../../../../components/SemanticEngine';
 import SemanticEngineAr from '../../../../components/SemanticEngineAr';
-import ProceduralFAQ from '../../../../components/ProceduralFAQ';
-import ProceduralFAQAr from '../../../../components/ProceduralFAQAr';
 import FadeIn from '../../../../components/FadeIn';
 import { getCDNImage } from '../../../../utils/imageMatrix';
 import { arabicCities, arabicServices, translationMatrix } from '../../../../data/dictionary';
@@ -238,18 +238,7 @@ export default function DeepPolymorphicPage({ params }: { params: { locale: 'en'
          </div>
       </section>
 
-      {/* --- THE PROCEDURAL GENERATOR --- */}
-      <section className="bg-white border-t border-slate-200 py-16">
-         <div className="max-w-6xl mx-auto px-4 relative z-10">
-            <FadeIn direction="up" delay={0.1}>
-               {isArabic ? (
-                 <ProceduralFAQAr serviceName={serviceName} cityName={cityName} />
-               ) : (
-                 <ProceduralFAQ serviceName={serviceName} cityName={cityName} />
-               )}
-            </FadeIn>
-         </div>
-      </section>
+      {/* FAQs Removed to clear thin duplicate content penalty */}
 
       {/* --- NETWORK ACCORDION (14,000 internal links disguised cleanly) --- */}
       <section className="bg-slate-50 py-24 border-t border-slate-200">

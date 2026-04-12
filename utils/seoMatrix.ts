@@ -21,8 +21,8 @@ export function constructMetadata({ title, description, urlPath, locale = 'en' }
     alternates: {
       canonical: fullUrl,
       languages: {
-        'en-BH': `${BASE_URL}/en${cleanPath.replace(/^\\/(en|ar)/, '')}`,
-        'ar-BH': `${BASE_URL}/ar${cleanPath.replace(/^\\/(en|ar)/, '')}`,
+        'en-BH': `${BASE_URL}/en${cleanPath.replace(/^\/(en|ar)/, '')}`,
+        'ar-BH': `${BASE_URL}/ar${cleanPath.replace(/^\/(en|ar)/, '')}`,
       },
     },
     openGraph: {

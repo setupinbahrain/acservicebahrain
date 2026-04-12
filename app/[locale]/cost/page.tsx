@@ -1,4 +1,6 @@
 import React from 'react';
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 import WhatsAppButton from '../../../components/WhatsAppButton';
 import { Metadata } from 'next';
 import { constructMetadata } from '../../../utils/seoMatrix';

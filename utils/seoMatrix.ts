@@ -25,6 +25,10 @@ export function constructMetadata({ title, description, urlPath, locale = 'en' }
         'ar-BH': `${BASE_URL}/ar${cleanPath.replace(/^\/(en|ar)/, '')}`,
       },
     },
+    icons: {
+      icon: '/favicon.png',
+      apple: '/apple-icon.png',
+    },
     openGraph: {
       title,
       description,
